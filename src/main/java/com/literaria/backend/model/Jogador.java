@@ -12,6 +12,7 @@ public class Jogador {
     private Long id;
     private String nome;
     private String pronome;
+    private int vida;
 
     public Long getId() {
         return id;
@@ -35,5 +36,13 @@ public class Jogador {
 
     public void setPronome(String pronome) {
         this.pronome = pronome;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
     }
 }

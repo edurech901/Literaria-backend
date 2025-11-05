@@ -20,7 +20,6 @@ public class Batalha {
     private List<Pergunta> perguntas;
     @OneToMany(mappedBy= "batalha", cascade = CascadeType.ALL)
     private List<Npcs> npcs;
-
     @ManyToOne
     @JoinColumn(name = "mundo_id")
     private Mundo mundo;
