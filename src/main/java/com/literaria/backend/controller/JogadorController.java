@@ -48,8 +48,7 @@ public class JogadorController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarJogador(@PathVariable Long id) {
         jogadorService.deletar(id);
-        return ResponseEntity.git add .
-        noContent().build();
+        return ResponseEntity.noContent().build();
     }
 
 }
