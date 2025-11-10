@@ -8,16 +8,35 @@ import com.literaria.backend.repository.JogadorRepository;
 
 @Service
 public class JogadorService {
-    
+
     @Autowired
     private JogadorRepository jogadorRepository;
 
     public Jogador salvar(Jogador jogador) {
         return jogadorRepository.save(jogador);
     }
-    
+
     public Jogador buscarPorId(Long id) {
         return jogadorRepository.findById(id).orElse(null);
+    }
+
+    public Jogador atualizar(Long id, Jogador dadosAtualizados) {
+        Jogador jogador = jogadorRepository.findById(id).orElseThrow();
+        if (jogador == null) {
+            return null;
+        }
+        if (dadosAtualizados.getNome() != null) {
+            jogador.setNome(dadosAtualizados.getNome());
+        }
+        if (dadosAtualizados.getPronome() != null) {
+            jogador.setPronome(dadosAtualizados.getPronome());
+        }
+        jogador.setVida(dadosAtualizados.getVida());
+        return jogadorRepository.save(jogador);
+    }
+
+    public void deletar(Long id) {
+        jogadorRepository.deleteById(id);
     }
 
 }
