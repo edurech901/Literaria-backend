@@ -12,8 +12,8 @@ public class JogadorService {
     @Autowired
     private JogadorRepository jogadorRepository;
 
-    public Jogador salvar(Jogador jogador) {
-        return jogadorRepository.save(jogador);
+    public Jogador salvarJogador(Jogador novoJogador) {
+        return jogadorRepository.save(novoJogador);
     }
 
     public Jogador buscarPorId(Long id) {

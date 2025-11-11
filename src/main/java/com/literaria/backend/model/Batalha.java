@@ -1,6 +1,8 @@
 package com.literaria.backend.model;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -8,6 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
@@ -23,6 +27,13 @@ public class Batalha {
     @ManyToOne
     @JoinColumn(name = "mundo_id")
     private Mundo mundo;
+    @ManyToMany
+    @JoinTable(
+        name = "batalha_jogador",
+        joinColumns = @JoinColumn(name = "batalha_id"),
+        inverseJoinColumns = @JoinColumn(name = "jogador_id")
+    )
+    private Set<Jogador> jogadores = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -54,5 +65,13 @@ public class Batalha {
 
     public void setMundo(Mundo mundo) {
         this.mundo = mundo;
+    }
+
+    public java.util.Set<Jogador> getJogadores() {
+        return jogadores;
+    }
+
+    public void setJogadores(java.util.Set<Jogador> jogadores) {
+        this.jogadores = jogadores;
     }
 }

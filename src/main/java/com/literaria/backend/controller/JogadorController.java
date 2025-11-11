@@ -14,7 +14,7 @@ import com.literaria.backend.model.Jogador;
 import com.literaria.backend.service.JogadorService;
 
 @RestController
-@RequestMapping("/Jogador")
+@RequestMapping("/jogador")
 public class JogadorController {
 
     private final JogadorService jogadorService;
@@ -25,7 +25,7 @@ public class JogadorController {
 
     @PostMapping
     public ResponseEntity<Jogador> criarJogador(@RequestBody Jogador jogador) {
-        Jogador novoJogador = jogadorService.salvar(jogador);
+        Jogador novoJogador = jogadorService.salvarJogador(jogador);
         return ResponseEntity.ok(novoJogador);
     }
 
