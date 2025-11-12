@@ -16,11 +16,11 @@ public class JogadorService {
         return jogadorRepository.save(novoJogador);
     }
 
-    public Jogador buscarPorId(Long id) {
+    public Jogador buscarJogadorPorId(Long id) {
         return jogadorRepository.findById(id).orElse(null);
     }
 
-    public Jogador atualizar(Long id, Jogador dadosAtualizados) {
+    public Jogador atualizarJogadorPorId(Long id, Jogador dadosAtualizados) {
         Jogador jogador = jogadorRepository.findById(id).orElseThrow();
         if (jogador == null) {
             return null;

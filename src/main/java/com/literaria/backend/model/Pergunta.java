@@ -1,5 +1,7 @@
 package com.literaria.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +22,7 @@ public class Pergunta {
     private String alternativa4;
     @ManyToOne
     @JoinColumn(name = "batalha_id")
+    @JsonIgnore
     private Batalha batalha;
 
     public Long getId() {

@@ -31,7 +31,7 @@ public class JogadorController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Jogador> buscarJogadorPorId(@PathVariable Long id) {
-        Jogador jogador = jogadorService.buscarPorId(id);
+        Jogador jogador = jogadorService.buscarJogadorPorId(id);
         if (jogador != null) {
             return ResponseEntity.ok(jogador);
         } else {
@@ -41,7 +41,7 @@ public class JogadorController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Jogador> atualizarJogador(@PathVariable Long id, @RequestBody Jogador dadosAtualizados) {
-        Jogador atualizado = jogadorService.atualizar(id, dadosAtualizados);
+        Jogador atualizado = jogadorService.atualizarJogadorPorId(id, dadosAtualizados);
         return ResponseEntity.ok(atualizado);
     }
 

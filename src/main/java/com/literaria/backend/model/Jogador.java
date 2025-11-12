@@ -1,12 +1,9 @@
 package com.literaria.backend.model;
 
-import java.util.HashSet;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Jogador {
@@ -16,8 +13,7 @@ public class Jogador {
     private String nome;
     private String pronome;
     private int vida;
-    @ManyToMany(mappedBy = "jogadores")
-    private java.util.Set<Batalha> batalhas = new HashSet<>();
+
 
     public Long getId() {
         return id;
@@ -51,11 +47,4 @@ public class Jogador {
         this.vida = vida;
     }
 
-    public java.util.Set<Batalha> getBatalhas() {
-        return batalhas;
-    }
-
-    public void setBatalhas(java.util.Set<Batalha> batalhas) {
-        this.batalhas = batalhas;
-    }
 }
