@@ -42,7 +42,7 @@ public class PerguntaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Pergunta> editarPergunta(@PathVariable Long id, @RequestBody Pergunta dadosAtualizados) {
+    public ResponseEntity<Pergunta> atualizarPergunta(@PathVariable Long id, @RequestBody Pergunta dadosAtualizados) {
         perguntaService.atualizarPerguntaPorId(id, dadosAtualizados);
         Pergunta perguntaAtualizada = perguntaService.buscarPerguntaPorId(id);
         return ResponseEntity.ok(perguntaAtualizada);
