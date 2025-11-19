@@ -21,7 +21,7 @@ public class Batalha {
     @OneToMany(mappedBy = "batalha", cascade = CascadeType.ALL)
     private List<Pergunta> perguntas;
     @OneToMany(mappedBy= "batalha", cascade = CascadeType.ALL)
-    private List<Npcs> npcs;
+    private List<Npc> npcs;
     @ManyToOne
     @JoinColumn(name = "mundo_id")
     @JsonIgnore
@@ -43,11 +43,11 @@ public class Batalha {
         this.perguntas = perguntas;
     }
 
-    public List<Npcs> getNpcs() {
+    public List<Npc> getNpcs() {
         return npcs;
     }
 
-    public void setNpcs(List<Npcs> npcs) {
+    public void setNpcs(List<Npc> npcs) {
         this.npcs = npcs;
     }
 

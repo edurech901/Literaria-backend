@@ -49,6 +49,7 @@ public class MundoService {
             List<Batalha> batalhasAtualizadas = dadosAtualizados.getBatalhas().stream()
                     .map(p -> batalhaRepository.findById(p.getId()).orElseThrow())
                     .toList();
+            
             for (Batalha b : batalhasAtualizadas) {
                 b.setMundo(mundo);
             }

@@ -1,6 +1,8 @@
 
 package com.literaria.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,7 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Npcs {
+public class Npc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,6 +21,7 @@ public class Npcs {
 
     @ManyToOne
     @JoinColumn(name = "batalha_id")
+    @JsonIgnore
     private Batalha batalha;
 
     public Long getId() {
