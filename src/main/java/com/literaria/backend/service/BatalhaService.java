@@ -50,7 +50,6 @@ public class BatalhaService {
 
     public void editarBatalhaPorId(Long id, Batalha dadosAtualizados) {
         Batalha batalha = batalhaRepository.findById(id).orElseThrow();
-        batalha.setMundo(dadosAtualizados.getMundo());
         if (dadosAtualizados.getPerguntas() != null) {
             List<Pergunta> perguntasAtualizadas = dadosAtualizados.getPerguntas().stream()
                     .map(p -> perguntaRepository.findById(p.getId()).orElseThrow())
