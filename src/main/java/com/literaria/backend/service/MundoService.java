@@ -54,6 +54,9 @@ public class MundoService {
                 b.setMundo(mundo);
             }
             List<Batalha> batalhasExistentes = mundo.getBatalhas();
+            batalhasExistentes.stream()
+                    .filter(b -> !batalhasAtualizadas.contains(b))
+                    .forEach(b -> b.setMundo(null));
             batalhasExistentes.clear();
             batalhasExistentes.addAll(batalhasAtualizadas);
         }
